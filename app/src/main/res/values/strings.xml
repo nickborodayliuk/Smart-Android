@@ -8,6 +8,7 @@
     <string name="barcode_header">Click &quot;Read Barcode&quot; to read a barcode</string>
     <string name="read_barcode">Read Barcode</string>
 
+
     <string name="add_device">Add Device</string>
 
     <string name="auto_focus">Auto Focus</string>
@@ -15,4 +16,14 @@
     <string name="barcode_success">Barcode read successfully</string>
     <string name="barcode_failure">No barcode captured</string>
     <string name="barcode_error">"Error reading barcode: %1$s"</string>
+
+
+
+    <string name="co2_normal">CO2 - Normal</string>
+    <string name="co2_not_normal">Carbon dioxide at levels that are unusually high indoors may cause occupants to grow drowsy, to get headaches, or to function at lower activity levels. Outdoor CO2 levels are usually 350-450 ppm whereas the maximum indoor CO2 level considered acceptable is 1000 ppm. Keep this value lowe as possible.</string>
+
+    <string name="temperature_normal">Temperature - Normal</string>
+    <string name="temperature_to_hot">The temperature is 22 degrees Celsius. The room temperature is too high at the moment.</string>
+    <string name="temperature_to_cold">The temperature is 22 degrees Celsius. The room temperature is too cold at the moment.</string>
+
 </resources>

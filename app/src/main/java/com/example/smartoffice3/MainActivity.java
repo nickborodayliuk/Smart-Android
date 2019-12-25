@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import com.example.smartoffice3.activitys.Room;
+import com.example.smartoffice3.activitys.managers.RoomManager;
 import com.example.smartoffice3.lib.DevicesButons;
 import com.example.smartoffice3.lib.Vector;
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -37,7 +38,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        if (RoomManager.NUMBER_ROOMS>0) {
+            setContentView(R.layout.activity_main);
+            findViewById(R.id.add_device_button).setOnClickListener(this);
+        }else {
+            setContentView(R.layout.first_enter_activity);
+            findViewById(R.id.add_device_in_wellkom);
+
+        }
 
         //statusMessage = (TextView)findViewById(R.id.status_message);
         //barcodeValue = (TextView)findViewById(R.id.barcode_value);
@@ -45,7 +54,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         autoFocus = true;
         useFlash = false;
 
-        findViewById(R.id.add_device_button).setOnClickListener(this);
+
 
 
 
@@ -57,6 +66,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void addDevise(String device) {
+        RoomManager.NUMBER_ROOMS++;
+        RoomManager.NAME_ROOMS.push_back(device);
         devicesButons.push_back(new DevicesButons(getApplicationContext(),
                 device,
                 devicesButons.size()));
@@ -84,7 +95,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
      */
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.add_device_button) {
+        if (v.getId() == R.id.add_device_button | v.getId()==R.id.add_device_in_wellkom) {
             // launch barcode activity.
             Intent intent = new Intent(this, BarcodeCaptureActivity.class);
             intent.putExtra(BarcodeCaptureActivity.AutoFocus, autoFocus);
